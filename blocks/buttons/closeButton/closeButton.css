@@ -3,7 +3,7 @@
   height: 32px;
   position: relative;
   top: 155px;
-  left: calc((100% - 430px) / 2 + 220px);
+  left: calc((100% - 430px) / 2 + 430px);
   background-image: url(../../../pictures/Close\ Icon.png);
   background-color: #000;
   background-size: 32px 32px;
@@ -20,14 +20,7 @@
     width: 20px;
     height: 20px;
     background-size: 20px 20px;
-    top: 135px;
-    left: calc((100% - 282px) / 2 + 145px);
+    top: 100px;
+    left: calc((100% - 282px) / 2 + 262px);
   }
-}
-@media screen and (max-width: 360px) {
-  .closeButton {
-    left: calc((100% - 282px) / 2 + 121px);
-    top: 87px;
-  }
-  
 }
