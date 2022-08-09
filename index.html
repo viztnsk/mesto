@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Место</title>
+</head>
+<body class="page">
+  <header class="header">
+    <img class="header__logo" src="./pictures/logo.png" alt="Логотип">
+    <hr class="header__line">
+  </header>
+  <main class="content">
+    <section class="profile">
+      <div class="profile__personal">
+        <img class="profile__avatar" src="./pictures/avatar.jpeg" alt="Аватар">
+        <div class="profile__info">
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <p class="profile__subtitle">Исследователь океана</p>
+        </div>
+        <button class="editButton"><img src="./pictures/write.png" alt="Кнопка редактирования"></button>
+      </div>
+      <button class="addButton"><img src="./pictures/plus.png" alt=""></button>
+    </section>
+    <section class="elements">
+      <article class="element">
+        <img class="element__image" src="./pictures/moscow.jpg" alt="Москва">
+        <div class="element__info">
+          <h2 class="element__title">Москва</h2>
+          <button class="likeButton"><img src="./pictures/like.png" alt="Лайк"></button>
+        </div>
+      </article>
+      <article class="element">
+        <img class="element__image" src="./pictures/petersburg.jpg" alt="Санкт-Петербург">
+        <div class="element__info">
+          <h2 class="element__title">Санкт-Петербург</h2>
+          <button class="likeButton"><img src="./pictures/like.png" alt="Лайк"></button>
+        </div>
+      </article>
+      <article class="element">
+        <img class="element__image" src="./pictures/sochi.jpg" alt="Сочи">
+        <div class="element__info">
+          <h2 class="element__title">Сочи</h2>
+          <button class="likeButton"><img src="./pictures/like.png" alt="Лайк"></button>
+        </div>
+      </article>
+      <article class="element">
+        <img class="element__image" src="./pictures/suzdal.jpg" alt="Суздаль">
+        <div class="element__info">
+          <h2 class="element__title">Суздаль</h2>
+          <button class="likeButton"><img src="./pictures/like.png" alt="Лайк"></button>
+        </div>
+      </article>
+      <article class="element">
+        <img class="element__image" src="./pictures/tula.jpg" alt="Тула">
+        <div class="element__info">
+          <h2 class="element__title">Тула</h2>
+          <button class="likeButton"><img src="./pictures/like.png" alt="Лайк"></button>
+        </div>
+      </article>
+      <article class="element">
+        <img class="element__image" src="./pictures/konstantinovo.jpg" alt="Константиново">
+        <div class="element__info">
+          <h2 class="element__title">Константиново</h2>
+          <button class="likeButton"><img src="./pictures/like.png" alt="Лайк"></button>
+        </div>
+      </article>
+    </section>
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">© 2020 Mesto Russia</p>
+  </footer>
+  <section class="popup">
+    <button class="closeButton"></button>
+    <div class="popup__container">
+      <h3 class="popup__title">Редактировать профиль</h3>
+      <form class="popup__form" action="">
+        <fieldset class="popup__name">
+          <input class="popup__info" type="text" name="name" placeholder="Имя" value="Жак-Ив Кусто">
+        </fieldset>
+        <fieldset class="popup__work">
+          <input class="popup__about" type="text" name="work" placeholder="О себе" value="Исследователь океана">
+        </fieldset>
+        <fieldset class="popup__button">
+          <button class="submitButton" type="submit">Сохранить</button>
+        </fieldset>
+      </form>
+    </div>
+  </section>
+  <script src="./index.js"></script>
+</body>
+</html>

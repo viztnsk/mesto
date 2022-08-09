@@ -1,0 +1,19 @@
+.addButton {
+  width: 150px;
+  height: 50px;
+  box-sizing: border-box;
+  border: 2px solid #FFFFFF;
+  border-radius: 2px;
+  background: none;
+  box-shadow: none;
+}
+.addButton:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+@media screen and (max-width: 650px) {
+  .addButton {
+    width: 282px;
+    margin-top: 15px;
+  }
+}
