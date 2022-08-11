@@ -1,5 +1,5 @@
 .elements {
-  margin: 51px 0 0;
+  margin: 50px 0 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -18,7 +18,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 1fr);
     gap: 20px;
-    margin-top: 36px;
-    margin-left: 20px;
+    margin-top: 74px;
+    margin-left: 19px;
   }
 }

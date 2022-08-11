@@ -1,25 +1,31 @@
-.submitButton {
-  width: 358px;
+.submit-button {
+  min-width: 358px;
   min-height: 50px;
   background-color: #000;
-  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
   text-align: center;
+  align-content: center;
   color: #FFFFFF;
   border: none;
+  box-shadow: none;
+  margin: 49px auto 37px;
+  padding: 0;
+  border-radius: 2px;
 }
-.submitButton:hover {
+.submit-button:hover {
   background-color: rgba(0, 0, 0, 0.8);
   cursor: pointer;
 }
 @media screen and (max-width: 650px) {
-  .submitButton {
-    width: 238px;
+  .submit-button {
+    min-width: 238px;
     min-height: 46px;
     font-size: 14px;
     line-height: 17px;
+    margin: 46px auto 25px;
+    padding: 0;
   }
 }

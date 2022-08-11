@@ -1,12 +1,5 @@
 .popup__button {
   border: none;
   box-shadow: none;
-  margin: 48px 36px 0;
-  padding-bottom: 37px;
-}
-@media screen and (max-width: 650px) {
- .popup__button {
-  margin: 46px 22px 0;
-  padding-bottom: 25px;
- } 
+  padding: 0
 }

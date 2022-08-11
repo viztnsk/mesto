@@ -1,0 +1,4 @@
+.like-button_active {
+  background-image: url(../../../../pictures/likeActive.svg);
+  opacity: 1;
+}

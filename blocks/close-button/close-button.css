@@ -1,10 +1,10 @@
-.closeButton {
+.close-button {
   width: 32px;
   height: 32px;
   position: relative;
-  top: 155px;
-  left: calc((100% - 430px) / 2 + 430px);
-  background-image: url(../../../pictures/Close\ Icon.png);
+  top: -40px;
+  right: calc((100% - 430px) / 2 - 366px);
+  background-image: url(../../pictures/closeButton.svg);
   background-color: #000;
   background-size: 32px 32px;
   background-repeat: no-repeat;
@@ -13,16 +13,16 @@
   border: none;
   box-shadow: none;
 }
-.closeButton:hover {
+.close-button:hover {
   opacity: 0.6;
   cursor: pointer;
 }
 @media screen and (max-width: 650px) {
-  .closeButton{
+  .close-button{
     width: 20px;
     height: 20px;
     background-size: 20px 20px;
-    top: 100px;
-    left: calc((100% - 282px) / 2 + 262px);
+    top: -36px;
+    right: calc((100% - 282px) / 2 - 218px);
   }
 }

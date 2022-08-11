@@ -1,4 +1,4 @@
-.editButton {
+.edit-button {
   width: 24px;
   height: 24px;
   box-sizing: border-box;
@@ -9,27 +9,26 @@
   top: 36px;
   left: auto;
   box-shadow: none;
+  padding: 0;
 }
-.editButton:hover {
+.edit-button:hover {
   opacity: 0.6;
   cursor: pointer;
 }
 @media screen and (max-width: 980px) {
-  .editButton {
+  .edit-button {
     top: 10px;
   }
 }
 @media screen and (max-width: 650px) {
-  .editButton {
+  .edit-button {
     width: 18px;
     height: 18px;
-    top: -55px;
-    left: 265px;
-  }
-}
-@media screen and (max-width: 450px) {
-  .editButton {
-    top: -50px;
-    left: 246px;
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: baseline;
+    position: relative;
+    top: 36px;
+    left: 0;
   }
 }
