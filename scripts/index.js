@@ -38,5 +38,3 @@ function formSubmitHandler (evt) {
 formElement.addEventListener('submit', formSubmitHandler);
 editButton.addEventListener('click', open);
 closeButton.addEventListener('click', close);
-console.log(job);
-console.log(title);
