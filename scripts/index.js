@@ -5,6 +5,14 @@ let closeButton = document.querySelector('.close-button');
 let title = document.querySelector('.profile__title');
 let job = document.querySelector('.profile__subtitle');
 
+// Находим форму в DOM
+let formElement = document.querySelector('.form'); // Воспользуйтесь методом querySelector()
+// Находим поля формы в DOM
+let nameInput = document.querySelector('.form__name'); // Воспользуйтесь инструментом .querySelector()
+let jobInput = document.querySelector('.form__about'); // Воспользуйтесь инструментом .querySelector()
+nameInput.value = title.textContent;
+jobInput.value = job.textContent;
+
 function open() { 
   popup.classList.add('popup_opened'); 
 } 
@@ -12,12 +20,6 @@ function close() {
   popup.classList.remove('popup_opened'); 
 } 
 
-
-// Находим форму в DOM
-let formElement = document.querySelector('.form'); // Воспользуйтесь методом querySelector()
-// Находим поля формы в DOM
-let nameInput = document.querySelector('.form__name'); // Воспользуйтесь инструментом .querySelector()
-let jobInput = document.querySelector('.form__about'); // Воспользуйтесь инструментом .querySelector()
 
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
