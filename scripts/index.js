@@ -8,8 +8,8 @@ let job = document.querySelector('.profile__subtitle');
 // Находим форму в DOM
 let formElement = document.querySelector('.form'); // Воспользуйтесь методом querySelector()
 // Находим поля формы в DOM
-let nameInput = document.querySelector('.form__name'); // Воспользуйтесь инструментом .querySelector()
-let jobInput = document.querySelector('.form__about'); // Воспользуйтесь инструментом .querySelector()
+let nameInput = document.querySelector('.form__input_type-name'); // Воспользуйтесь инструментом .querySelector()
+let jobInput = document.querySelector('.form__input_type-about'); // Воспользуйтесь инструментом .querySelector()
 
 function open() { 
   popup.classList.add('popup_opened');
