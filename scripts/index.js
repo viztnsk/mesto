@@ -10,11 +10,11 @@ let formElement = document.querySelector('.form'); // Воспользуйтес
 // Находим поля формы в DOM
 let nameInput = document.querySelector('.form__name'); // Воспользуйтесь инструментом .querySelector()
 let jobInput = document.querySelector('.form__about'); // Воспользуйтесь инструментом .querySelector()
-nameInput.value = title.textContent;
-jobInput.value = job.textContent;
 
 function open() { 
-  popup.classList.add('popup_opened'); 
+  popup.classList.add('popup_opened');
+  nameInput.value = title.textContent;
+  jobInput.value = job.textContent;
 } 
 function close() { 
   popup.classList.remove('popup_opened'); 
