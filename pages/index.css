@@ -31,7 +31,7 @@
 @import url(../blocks/form/form.css);
 @import url(../blocks/form/__info/form__info.css);
 @import url(../blocks/form/__input/form__input.css);
-@import url(../blocks/form/__input/_type_name/form__input_type_name.css);
-@import url(../blocks/form/__input/_type_about/form__input_type_about.css);
+@import url(../blocks/form/__input/_type/form__input_type_name.css);
+@import url(../blocks/form/__input/_type/form__input_type_about.css);
 @import url(../blocks/form/__handler/form__handler.css);
 @import url(../blocks/form/__about/form__about.css);
