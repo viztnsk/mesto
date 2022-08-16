@@ -19,6 +19,5 @@
     grid-template-rows: repeat(6, 1fr);
     gap: 20px;
     margin-top: 74px;
-    margin-left: 19px;
   }
 }
