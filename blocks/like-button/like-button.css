@@ -9,6 +9,7 @@
   box-shadow: none;
   width: 22px;
   height: 19px;
+  padding: 0;
 }
 .like-button:hover {
   opacity: 0.5;
