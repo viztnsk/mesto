@@ -9,15 +9,12 @@ let title = document.querySelector('.profile__title');
 let job = document.querySelector('.profile__subtitle');
 let addButton = document.querySelector('.add-button'); 
 const elements = document.querySelector('.elements');
-// Находим форму в DOM
-let formElement = document.querySelector('.form'); // Воспользуйтесь методом querySelector()
+let formElement = document.querySelector('.form');
 let addFormElement = document.querySelector('.form_add');
-// Находим поля формы в DOM
-let nameInput = document.querySelector('.form__input_type_name'); // Воспользуйтесь инструментом .querySelector()
-let jobInput = document.querySelector('.form__input_type_about'); // Воспользуйтесь инструментом .querySelector()
-
-let cardName = popup.querySelector('.form__input_type_card-name');
-let cardLink = popup.querySelector('.form__input_type_card-link');
+let nameInput = formElement.querySelector('.form__input_type_name');
+let jobInput = formElement.querySelector('.form__input_type_about');
+let cardName = addFormElement.querySelector('.form__input_type_card-name');
+let cardLink = addFormElement.querySelector('.form__input_type_card-link');
 
 const initialCards = [
   {
@@ -46,8 +43,17 @@ const initialCards = [
   }
 ];
 
+function open(element) { 
+  element.classList.add('popup_opened');
+  nameInput.value = title.textContent;
+  jobInput.value = job.textContent;
+} 
 
-initialCards.forEach(card => {
+function close(element) { 
+  element.classList.remove('popup_opened'); 
+} 
+
+function addCard(card) {
   const html = 
   `<article class="element">
     <img class="element__image" src="${card.link}" alt="${card.name}">
@@ -58,42 +64,27 @@ initialCards.forEach(card => {
     </div>
   </article>`;
   elements.insertAdjacentHTML('afterbegin', html);
-}); 
+};
 
-function open(element) { 
-  element.classList.add('popup_opened');
-  nameInput.value = title.textContent;
-  jobInput.value = job.textContent;
-} 
-function close(element) { 
-  element.classList.remove('popup_opened'); 
-} 
-
-// Обработчик «отправки» формы, хотя пока
-// она никуда отправляться не будет
 function formSubmitHandler (evt) {
-    evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-                                                // Так мы можем определить свою логику отправки.
-                                                // О том, как это делать, расскажем позже.
-
-    // Получите значение полей jobInput и nameInput из свойства value
+    evt.preventDefault();
     title.textContent = nameInput.value;
     job.textContent = jobInput.value;
-    // Выберите элементы, куда должны быть вставлены значения полей
-    // Вставьте новые значения с помощью textContent
-    close();
+    close(popup);
 }
+
 function formAddHandler (evt) {
   evt.preventDefault();
-  card.name = form__input_type_card-name.value;
-  card.link = form__input_type_card-link.value;
-  initialCards.unshift(card);
-  close();
+  let card = {
+    name: cardName.value,
+    link: cardLink.value
+  };
+  addCard(card);
+  close(popupPlace);
 }
 
+initialCards.forEach(addCard);
 
-// Прикрепляем обработчик к форме:
-// он будет следить за событием “submit” - «отправка»
 formElement.addEventListener('submit', formSubmitHandler);
 addFormElement.addEventListener('submit', formAddHandler);
 editButton.addEventListener('click', function () {
