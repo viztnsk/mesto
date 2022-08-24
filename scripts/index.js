@@ -54,16 +54,12 @@ function close(element) {
 } 
 
 function addCard(card) {
-  const html = 
-  `<article class="element">
-    <img class="element__image" src="${card.link}" alt="${card.name}">
-    <button class="delete-button" type="button"></button>
-    <div class="element__info">
-      <h2 class="element__title">${card.name}</h2>
-      <button class="like-button" type="button"></button>
-    </div>
-  </article>`;
-  elements.insertAdjacentHTML('afterbegin', html);
+  const templateCard = document.querySelector('.template');
+  const newCard = templateCard.content.cloneNode(true);
+  newCard.querySelector('.element__image').setAttribute('src', card.link);
+  newCard.querySelector('.element__image').setAttribute('alt', card.name);
+  newCard.querySelector('.element__title').textContent = card.name;
+  elements.prepend(newCard);
 };
 
 function formSubmitHandler (evt) {
