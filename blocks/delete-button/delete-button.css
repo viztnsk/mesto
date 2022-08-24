@@ -7,11 +7,12 @@
   height: 19px;
   border: none;
   box-shadow: none;
-  position: relative;
-  top: -262px;
-  left: 244px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
   padding: 0;
   cursor: pointer;
+  z-index: 5;
 }
 .delete-button:hover {
   opacity: 0.6;

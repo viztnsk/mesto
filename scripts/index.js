@@ -51,7 +51,7 @@ function open(element) {
 
 function close(element) { 
   element.classList.remove('popup_opened'); 
-} 
+};
 
 function addCard(card) {
   const templateCard = document.querySelector('.template');
@@ -59,6 +59,16 @@ function addCard(card) {
   newCard.querySelector('.element__image').setAttribute('src', card.link);
   newCard.querySelector('.element__image').setAttribute('alt', card.name);
   newCard.querySelector('.element__title').textContent = card.name;
+
+  newCard.querySelector('.delete-button').addEventListener('click', (e) => {
+    const cardElement = e.target.closest('.element');
+    cardElement.remove();
+  });
+
+  newCard.querySelector('.like-button').addEventListener('click', function (e) {
+    e.target.classList.toggle('like-button_active');
+  }); 
+
   elements.prepend(newCard);
 };
 
@@ -77,6 +87,9 @@ function formAddHandler (evt) {
   };
   addCard(card);
   close(popupPlace);
+}
+
+function deleteCard() {
 }
 
 initialCards.forEach(addCard);
