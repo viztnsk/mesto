@@ -35,3 +35,5 @@
 @import url(../blocks/form/__input/_type/form__input_type_about.css);
 @import url(../blocks/form/__handler/form__handler.css);
 @import url(../blocks/delete-button/delete-button.css);
+@import url(../blocks/image-button/image-button.css);
+@import url(../blocks/popup/__image/popup__image.css);
