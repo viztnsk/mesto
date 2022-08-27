@@ -2,7 +2,7 @@
   width: 32px;
   height: 32px;
   position: relative;
-  top: -100%;
+  top: -10px;
   left: 101%;
   background-image: url(../../images/closeButton.svg);
   background-color: transparent;
@@ -12,6 +12,7 @@
   box-sizing: border-box;
   border: none;
   box-shadow: none;
+  padding: 16px;
 }
 .close-button_image:hover {
   opacity: 0.6;
@@ -22,7 +23,5 @@
     width: 20px;
     height: 20px;
     background-size: 20px 20px;
-    top: -36px;
-    right: calc((100% - 282px) / 2 - 218px);
   }
 }
