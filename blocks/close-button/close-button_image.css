@@ -1,9 +1,9 @@
-.close-button {
+.close-button_image {
   width: 32px;
   height: 32px;
   position: relative;
-  top: -40px;
-  right: calc((100% - 430px) / 2 - 366px);
+  top: -100%;
+  left: 101%;
   background-image: url(../../images/closeButton.svg);
   background-color: transparent;
   background-size: 32px 32px;
@@ -13,12 +13,12 @@
   border: none;
   box-shadow: none;
 }
-.close-button:hover {
+.close-button_image:hover {
   opacity: 0.6;
   cursor: pointer;
 }
 @media screen and (max-width: 650px) {
-  .close-button{
+  .close-button_image{
     width: 20px;
     height: 20px;
     background-size: 20px 20px;
