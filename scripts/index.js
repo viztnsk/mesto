@@ -1,6 +1,6 @@
 const popup = document.querySelector('.popup'); 
 const popupPlace = document.querySelector('.popup_place'); 
-const popupCard = document.querySelector('.popup__card');
+const popupCard = document.querySelector('.popup_card');
 const popupImage = document.querySelector('.popup__image');
 const popupText = document.querySelector('.popup__text');
 const editButton = document.querySelector('.edit-button'); 
