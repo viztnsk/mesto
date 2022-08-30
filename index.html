@@ -28,39 +28,39 @@
     <footer class="footer">
       <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
-    <section class="popup">
+    <section class="popup popup_type_info">
       <div class="popup__container">
-        <button class="close-button" type="button"></button>
+        <button class="close-button close-button_type_info" type="button"></button>
         <h3 class="popup__title">Редактировать профиль</h3>
-        <form class="form">
+        <form class="form form_type_info">
           <fieldset class="form__info">
             <input class="form__input form__input_type_name" type="text" id="name" placeholder="Имя" value="">
             <input class="form__input form__input_type_about" type="text" id="work" placeholder="О себе" value="">
           </fieldset>
           <fieldset class="form__handler">
-            <button class="submit-button" type="submit">Сохранить</button>
+            <button class="submit-button submit-button_type_save" type="submit">Сохранить</button>
           </fieldset>
         </form>
       </div>
     </section>
-    <section class="popup popup_place">
+    <section class="popup popup_type_place">
       <div class="popup__container">
-        <button class="close-button close-button_place" type="button"></button>
+        <button class="close-button close-button_type_place" type="button"></button>
         <h3 class="popup__title">Новое место</h3>
-        <form class="form form_add">
+        <form class="form form_type_add">
           <fieldset class="form__info">
-            <input class="form__input form__input_type_name form__input_type_card-name" type="text" placeholder="Название" value="">
-            <input class="form__input form__input_type_about form__input_type_card-link" type="text" placeholder="Ссылка на картинку" value="">
+            <input class="form__input form__input_type_card-name" type="text" placeholder="Название" value="">
+            <input class="form__input form__input_type_card-link" type="text" placeholder="Ссылка на картинку" value="">
           </fieldset>
           <fieldset class="form__handler">
-            <button class="submit-button" type="submit">Создать</button>
+            <button class="submit-button submit-button_type_add" type="submit">Создать</button>
           </fieldset>
         </form>
       </div>
     </section>
-    <section class="popup popup_card">
+    <section class="popup popup_type_card">
       <div class="popup__picture">
-        <button class="close-button close-button_image" type="button"></button>
+        <button class="close-button close-button_type_image" type="button"></button>
         <img class="popup__image" src="#" alt="">
         <p class="popup__text"></p>
       </div>
@@ -76,6 +76,7 @@
       </article>
     </template>
   </div>
+  <script src="./scripts/cards.js"></script>
   <script src="./scripts/index.js"></script>
 </body>
 </html>
