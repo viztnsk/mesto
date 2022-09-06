@@ -23,6 +23,7 @@ const cardLink = addFormElement.querySelector('.form__input_type_card-link');
 const templateCard = document.querySelector('.template');
 
 // функции
+
 function openPopup(element) {  
   element.classList.add('popup_opened');
 }  
