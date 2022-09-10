@@ -48,6 +48,7 @@ function enableValidation () {
 
 function resetValidation() {
   enableValidation(validationConfig);
+
 };
 
 function hasInvalidInput (inputList) {
