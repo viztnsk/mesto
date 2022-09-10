@@ -44,4 +44,4 @@
 @import url(../blocks/delete-button/delete-button.css);
 @import url(../blocks/image-button/image-button.css);
 @import url(../blocks/close-button/_type/_image/close-button_type_image.css);
-@import url(../blocks/submit-button/_inactive/submit-button_inactive.css);
+@import url(../blocks/submit-button/_disabled/submit-button_disabled.css);

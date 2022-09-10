@@ -1,74 +1,77 @@
-function isValid (formElement, inputElement) {
-  if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
-  } else {
-    hideInputError(formElement, inputElement);
-  }
-};
-function showInputError (formElement, inputElement, errorMessage) {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.add('form__input_type_error');
-  errorElement.textContent = errorMessage;
-  errorElement.classList.add('form__input_error_active');
-};
-function hideInputError (formElement, inputElement) {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove('form__input_type_error');
-  errorElement.classList.remove('form__input_error_active');
-  errorElement.textContent = '';
-}; 
-function setEventListeners (formElement) {
-  const inputList = Array.from(formElement.querySelectorAll('.form__input'));
-  inputList.forEach((inputElement) => {
-    inputElement.addEventListener('input', () => {
-      isValid(formElement, inputElement)
-    });
-  });
-}; 
-function enableValidation () {
-  const formList = Array.from(document.querySelectorAll('.form'));
-  formList.forEach((formElement) => {
-    formElement.addEventListener('submit', (evt) => {
-      evt.preventDefault();
-    });
-    setEventListeners(formElement);
-  });
-};
-
-// Функция принимает массив полей
-
-function hasInvalidInput (inputList) {
-  return inputList.some((inputElement) => {
-    return !inputElement.validity.valid;
-  })
-};
-
-// Функция принимает массив полей ввода
-// и элемент кнопки, состояние которой нужно менять
-
-function toggleButtonState (inputList, buttonElement) {
-  if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add('submit-button_inactive');
-  } else {
-    buttonElement.classList.remove('submit-button_inactive');
-  }
-}; 
-function setEventListeners (formElement) {
-  const inputList = Array.from(formElement.querySelectorAll(`.form__input`));
-  const buttonElement = formElement.querySelector('.submit-button');
-  toggleButtonState(inputList, buttonElement);
-  inputList.forEach((inputElement) => {
-    inputElement.addEventListener('input', () => {
-      isValid(formElement, inputElement);
-      toggleButtonState(inputList, buttonElement);
-    });
-  });
-};
-enableValidation({
+const validationConfig = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__button',
   inactiveButtonClass: 'popup__button_disabled',
   inputErrorClass: 'popup__input_type_error',
   errorClass: 'popup__error_visible'
-}); 
+}; 
+function isValid (formSelector, inputSelector) {
+  if (!inputSelector.validity.valid) {
+    showInputError(formSelector, inputSelector, inputSelector.validationMessage);
+  } else {
+    hideInputError(formSelector, inputSelector);
+  }
+};
+
+function showInputError (formSelector, inputSelector, errorMessage) {
+  const inputErrorClass = formSelector.querySelector(`.${inputSelector.id}-error`);
+  inputSelector.classList.add('form__input_type_error');
+  inputErrorClass.textContent = errorMessage;
+  inputErrorClass.classList.add('form__input_error_active');
+};
+
+function hideInputError (formSelector, inputSelector) {
+  const inputErrorClass = formSelector.querySelector(`.${inputSelector.id}-error`);
+  inputSelector.classList.remove('form__input_type_error');
+  inputErrorClass.classList.remove('form__input_error_active');
+  inputErrorClass.textContent = '';
+}; 
+
+function setEventListeners (formSelector) {
+  const inputList = Array.from(formSelector.querySelectorAll('.form__input'));
+  inputList.forEach((inputSelector) => {
+    inputSelector.addEventListener('input', () => {
+      isValid(formSelector, inputSelector)
+    });
+  });
+}; 
+function enableValidation () {
+  const formList = Array.from(document.querySelectorAll('.form'));
+  formList.forEach((formSelector) => {
+    formSelector.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+    });
+    setEventListeners(formSelector);
+  });
+};
+
+function resetValidation() {
+  enableValidation(validationConfig);
+};
+
+function hasInvalidInput (inputList) {
+  return inputList.some((inputSelector) => {
+    return !inputSelector.validity.valid;
+  })
+};
+
+function toggleButtonState (inputList, submitButtonSelector) {
+  if (hasInvalidInput(inputList)) {
+    submitButtonSelector.classList.add('submit-button_disabled');
+  } else {
+    submitButtonSelector.classList.remove('submit-button_disabled');
+  }
+}; 
+
+function setEventListeners (formSelector) {
+  const inputList = Array.from(formSelector.querySelectorAll(`.form__input`));
+  const submitButtonSelector = formSelector.querySelector('.submit-button');
+  toggleButtonState(inputList, submitButtonSelector);
+  inputList.forEach((inputSelector) => {
+    inputSelector.addEventListener('input', () => {
+      isValid(formSelector, inputSelector);
+      toggleButtonState(inputList, submitButtonSelector);
+    });
+  });
+}; 

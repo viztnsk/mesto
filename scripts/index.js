@@ -24,12 +24,22 @@ const templateCard = document.querySelector('.template');
 
 // функции
 
-function openPopup(element) {  
+function openPopup(element) {
+  resetValidation(validationConfig);
   element.classList.add('popup_opened');
-}  
-function closePopup(element) { 
+  document.addEventListener('keydown', escapeButtonHandler);}  
+function closePopup(element) {
   element.classList.remove('popup_opened'); 
+  document.removeEventListener('keydown', escapeButtonHandler);
 };
+function escapeButtonHandler(evt) {
+  if (evt.key === 'Escape') {
+    const popupActive = document.querySelector('.popup_opened');
+    if (popupActive) {
+      closePopup(popupActive);
+    }
+  }
+}
 function deleteCard(e) {
   const cardElement = e.target.closest('.element');
   cardElement.remove();
@@ -98,4 +108,19 @@ closeButtonPlace.addEventListener('click', function (){
 });
 closeButtonImage.addEventListener('click', function (){
   closePopup(popupCard);
+});
+popupInfo.addEventListener('click', function (evt) {
+  if (evt.target === evt.currentTarget) {
+    closePopup(popupInfo);
+  }
+});
+popupPlace.addEventListener('click', function (evt) {
+  if (evt.target === evt.currentTarget) {
+    closePopup(popupPlace);
+  }
+});
+popupCard.addEventListener('click', function (evt) {
+  if (evt.target === evt.currentTarget) {
+    closePopup(popupCard);
+  }
 });
