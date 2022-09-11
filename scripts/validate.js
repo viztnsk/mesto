@@ -1,10 +1,10 @@
 const validationConfig = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible'
+  formSelector: '.form',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.submit-button',
+  inactiveButtonClass: 'submit-button_disabled',
+  inputErrorClass: 'form__input-error',
+  errorClass: 'form__input-error_visible'
 }; 
 function isValid (formSelector, inputSelector) {
   if (!inputSelector.validity.valid) {
