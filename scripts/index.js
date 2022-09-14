@@ -21,41 +21,48 @@ const jobInput = infoFormElement.querySelector('.form__input_type_about');
 const cardName = addFormElement.querySelector('.form__input_type_card-name');
 const cardLink = addFormElement.querySelector('.form__input_type_card-link');
 const templateCard = document.querySelector('.template');
+const popups = document.querySelectorAll('.popup')
 
 // функции
 
 function openPopup(element) {
-  resetValidation(validationConfig);
   element.classList.add('popup_opened');
-  document.addEventListener('keydown', escapeButtonHandler);}  
+  document.addEventListener('keydown', handleEscape);
+};
+
 function closePopup(element) {
   element.classList.remove('popup_opened'); 
-  document.removeEventListener('keydown', escapeButtonHandler);
+  document.removeEventListener('keydown', handleEscape);
 };
-function escapeButtonHandler(evt) {
+
+function handleEscape(evt) {
   if (evt.key === 'Escape') {
     const popupActive = document.querySelector('.popup_opened');
     if (popupActive) {
       closePopup(popupActive);
     }
   }
-}
+};
+
 function deleteCard(e) {
   const cardElement = e.target.closest('.element');
   cardElement.remove();
 };
+
 function likeCard(e) {
-    e.target.classList.toggle('like-button_active');
-  };
+  e.target.classList.toggle('like-button_active');
+};
+
 function openImage(e) {
   const cardImage = e.target.closest('.element__image');
-  imageSource = cardImage.getAttribute('src');
-  imageAlt = cardImage.getAttribute('alt');
+  const imageSource = cardImage.getAttribute('src');
+  const imageAlt = cardImage.getAttribute('alt');
   popupImage.setAttribute('src', imageSource);
   popupImage.setAttribute('alt', imageAlt);
   popupText.textContent = imageAlt;
   openPopup(popupCard);
 };
+
 function createCard(card) {
   const newCard = templateCard.content.cloneNode(true);
   const elementImage = newCard.querySelector('.element__image');
@@ -68,17 +75,20 @@ function createCard(card) {
   newCard.querySelector('.image-button').addEventListener('click', openImage);
   return newCard;
 };
+
 initialCards.forEach((card) => {
   const newCard = createCard(card);
   cardGrid.prepend(newCard);
 });
-function submitInfoHandler (evt) {
+
+function handleProfileFormSubmit (evt) {
     evt.preventDefault();
     profileTitle.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
     closePopup(popupInfo);
 };
-function addCardHandler (evt) {
+
+function handleCardAdd (evt) {
   evt.preventDefault();
   const card = {
     name: cardName.value,
@@ -90,37 +100,29 @@ function addCardHandler (evt) {
 };
 
 // вызовы функций
-infoFormElement.addEventListener('submit', submitInfoHandler);
-addFormElement.addEventListener('submit', addCardHandler);
+infoFormElement.addEventListener('submit', handleProfileFormSubmit);
+addFormElement.addEventListener('submit', handleCardAdd);
+
 editButton.addEventListener('click', function () {
   openPopup(popupInfo);
   nameInput.value = profileTitle.textContent; 
-  jobInput.value = profileJob.textContent; 
+  jobInput.value = profileJob.textContent;
+  removeDisabledButton(submitButtonSave, validationConfig);
 });
+
 addButton.addEventListener('click', function () {
   openPopup(popupPlace);
+  removeDisabledButton(submitButtonAdd, validationConfig);
+  addDisabledButton (submitButtonAdd, validationConfig)
 });
-closeButtonInfo.addEventListener('click', function (){
-  closePopup(popupInfo);
-});
-closeButtonPlace.addEventListener('click', function (){
-  closePopup(popupPlace);
-});
-closeButtonImage.addEventListener('click', function (){
-  closePopup(popupCard);
-});
-popupInfo.addEventListener('click', function (evt) {
-  if (evt.target === evt.currentTarget) {
-    closePopup(popupInfo);
-  }
-});
-popupPlace.addEventListener('click', function (evt) {
-  if (evt.target === evt.currentTarget) {
-    closePopup(popupPlace);
-  }
-});
-popupCard.addEventListener('click', function (evt) {
-  if (evt.target === evt.currentTarget) {
-    closePopup(popupCard);
-  }
-});
+
+popups.forEach((popup) => {
+    popup.addEventListener('mousedown', (evt) => {
+        if (evt.target.classList.contains('popup_opened')) {
+            closePopup(popup)
+        }
+        if (evt.target.classList.contains('close-button')) {
+          closePopup(popup)
+        }
+    })
+})
