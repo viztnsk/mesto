@@ -33,7 +33,7 @@ export default class FormValidator {
     this._buttonElement.classList.add(this._buttonDisabled);
     this._buttonElement.setAttribute("disabled", "");
   }
-  _removeDisabledButton () {
+  removeDisabledButton () {
     this._buttonElement.classList.remove(this._buttonDisabled);
     this._buttonElement.removeAttribute("disabled", "");
   }
@@ -42,7 +42,7 @@ export default class FormValidator {
     if (hasErrors) {
       this._addDisabledButton();
     } else {
-      this._removeDisabledButton();
+      this.removeDisabledButton();
     }
   }
   resetValidation (){

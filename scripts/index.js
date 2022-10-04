@@ -15,11 +15,11 @@ const popupText = document.querySelector('.popup__text');
 const profileTitle = document.querySelector('.profile__title');
 const profileJob = document.querySelector('.profile__subtitle');
 const infoFormElement = document.querySelector('.form_type_info');
-const addFormElement = document.querySelector('.form_type_add');
+const cardFormElement = document.querySelector('.form_type_add');
 const nameInput = infoFormElement.querySelector('.form__input_type_name');
 const jobInput = infoFormElement.querySelector('.form__input_type_about');
-const cardName = addFormElement.querySelector('.form__input_type_card-name');
-const cardLink = addFormElement.querySelector('.form__input_type_card-link');
+const cardName = cardFormElement.querySelector('.form__input_type_card-name');
+const cardLink = cardFormElement.querySelector('.form__input_type_card-link');
 const popups = document.querySelectorAll('.popup')
 
 const validationConfig = { 
@@ -46,9 +46,7 @@ function closePopup(element) {
 function handleEscape(evt) {
   if (evt.key === 'Escape') {
     const popupActive = document.querySelector('.popup_opened');
-    if (popupActive) {
       closePopup(popupActive);
-    }
   }
 };
 
@@ -80,7 +78,7 @@ const addCard = function(name, link) {
 function handleCardAdd (evt) {
   evt.preventDefault();
   const card = addCard(cardName.value, cardLink.value);
-  addFormElement.reset();
+  cardFormElement.reset();
   placeCard(card);
   closePopup(popupPlace);
 };
@@ -100,17 +98,18 @@ initialCards.forEach((item) => {
 
 infoFormElement.addEventListener('submit', handleProfileFormSubmit);
 
-addFormElement.addEventListener('submit', handleCardAdd);
+cardFormElement.addEventListener('submit', handleCardAdd);
 
 editButton.addEventListener('click', function () {
   openPopup(popupInfo);
   nameInput.value = profileTitle.textContent; 
   jobInput.value = profileJob.textContent;
-  infoFormElement._removeDisabledButton;
+  infoFormElement.removeDisabledButton;
+  infoFormElement.resetValidation();
 });
 
 addButton.addEventListener('click', function () {
-  addFormElement.reset();
+  cardFormElement.reset();
   addFormValidator.resetValidation();
   openPopup(popupPlace);
 });
