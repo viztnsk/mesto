@@ -34,9 +34,9 @@
         <h3 class="popup__title">Редактировать профиль</h3>
         <form class="form form_type_info" novalidate>
           <fieldset class="form__info">
-            <input id="name-input" class="form__input form__input_type_name" type="text" placeholder="Имя" value="" required minlength="2" maxlength="40">
+            <input id="name-input" class="form__input form__input_type_name" type="text" placeholder="Имя" name='name' value="" required minlength="2" maxlength="40">
             <span id="name-input-error"></span>
-            <input id="about-input"class="form__input popup__input form__input_type_about" type="text" placeholder="О себе" value="" required minlength="2" maxlength="200">
+            <input id="about-input"class="form__input popup__input form__input_type_about" type="text" placeholder="О себе" name="info" value="" required minlength="2" maxlength="200">
             <span id="about-input-error"></span>
           </fieldset>
           <fieldset class="form__handler">
@@ -51,9 +51,9 @@
         <h3 class="popup__title">Новое место</h3>
         <form class="form form_type_add" novalidate>
           <fieldset class="form__info">
-            <input id='place-input' class="form__input form__input_type_card-name" type="text" placeholder="Название" value="" required minlength="2" maxlength="30">
+            <input id='place-input' class="form__input form__input_type_card-name" type="text" placeholder="Название" name="name" value="" required minlength="2" maxlength="30">
             <span id="place-input-error"></span>
-            <input id='link-input' class="form__input form__input_type_card-link" type="url" placeholder="Ссылка на картинку" value="" required>
+            <input id='link-input' class="form__input form__input_type_card-link" type="url" placeholder="Ссылка на картинку" name="link" value="" required>
             <span id="link-input-error"></span>
           </fieldset>
           <fieldset class="form__handler">

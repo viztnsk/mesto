@@ -16,20 +16,19 @@ const cardFormElement = document.querySelector('.form_type_add');
 
 const userInfo = new UserInfo('.profile__title', '.profile__subtitle');
 
-const createCard = function({name, link}) {
+const createCard = function({ name, link }) {
   const card = new Card({ name, link }, '.template', popupWithImage.open.bind(popupWithImage));
   return card.generateCard();
 }
 
 const popupWithInfoForm = new PopupWithForm('.popup_type_info', ({name, info}) => {
-  userInfo.setUserInfo({name, info});
+  userInfo.setUserInfo(name, info);
 });
 const popupWithCardForm = new PopupWithForm('.popup_type_place', (values) => {
   cardSection.addItem(createCard(values));
 });
 const popupWithImage = new PopupWithImage('.popup_type_card');
 
-// функции
 
 const cardSection = new Section({
   items: initialCards,
