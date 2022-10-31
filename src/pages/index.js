@@ -62,7 +62,7 @@ api.getUser()
 })
 const popupWithInfoForm = new PopupWithForm('.popup_type_info', (values) =>
   api.patchUser(values)
-    .then((values) => userInfo.setUserInfo(values.name, values.about))
+    .then((values) => userInfo.setUserInfo(values))
 );
 
 const popupWithImage = new PopupWithImage('.popup_type_card');
@@ -85,7 +85,9 @@ api.getCards()
 })
 
 const popupWithAvatar = new PopupWithForm('.popup_type_avatar', (values) => {
-  console.log(values); api.setAvatar({ avatar: values.link }).then(userInfo.setAvatar(values.link))
+  console.log(values.link); 
+  
+  api.setAvatar(values.link).then(userInfo.setAvatar(values.link))
 });
 
 //const popupWithDelConfirm = new PopupWithConfirm('.popup_type_delete', ({id, callback}) => api.removeCard(id).then(() => {callback()}));

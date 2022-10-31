@@ -3,6 +3,7 @@ export default class Api {
     this._url = url;
     this._headers = headers;
   }
+
   async _fetch(path, method='GET', body) {
     const opt = { ...this._headers, method };
     if (body) {
@@ -15,12 +16,7 @@ export default class Api {
     }
     const res = await fetch(this._url + path, opt)
     const json = await res.json()
-    if (res.ok) {
-      return json
-    }
-    else {
-      Promise.reject(`Ошибка: ${res.status}`)
-    }
+    return res.ok ? json : Promise.reject(`Ошибка: ${res.status}`)
   }
     getCards() {
       return this._fetch('/cards', "GET");
@@ -31,11 +27,11 @@ export default class Api {
     patchUser(values) {
       return this._fetch('/users/me', 'PATCH', values)
     }
-    setAvatar(data) {
-      return this._fetch('/users/me/avatar', 'PATCH', data)
+    setAvatar(avatar) {
+      return this._fetch('/users/me/avatar', 'PATCH', avatar)
     }
-    addCard(data) {
-      return this._fetch('/cards', "POST", data)
+    addCard(values) {
+      return this._fetch('/cards', "POST", values)
     }
     deleteCard() {
       return this._fetch('/cards' + id, "DELETE")
