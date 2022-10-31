@@ -11,3 +11,4 @@ export const profileTitle = document.querySelector('.profile__title');
 export const profileJob = document.querySelector('.profile__subtitle');
 export const editButton = document.querySelector('.edit-button');
 export const addButton = document.querySelector('.add-button')
+export const avatarButton = document.querySelector('.avatar-button');

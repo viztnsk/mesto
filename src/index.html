@@ -13,10 +13,17 @@
     </header>
     <main class="content">
       <section class="profile">
-        <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Аватар">
+        <button class="avatar-button" type="button">
+          <div class="avatar__container">
+            <img class="profile__avatar" src="#" alt="Аватар">
+            <div class="avatar__cover">
+              <img class="avatar__edit-button" src="<%=require('./images/editAvatarButton.svg')%>" alt="Изменить аватар">
+            </div>
+        </div>
+        </button>
         <div class="profile__info">
-          <h1 class="profile__title">Жак-Ив Кусто</h1>
-          <p class="profile__subtitle">Исследователь океана</p>
+          <h1 class="profile__title"></h1>
+          <p class="profile__subtitle"></p>
         </div>
         <button class="edit-button" type="button"><img src="<%=require('./images/editButton.svg')%>" alt="Кнопка редактирования"></button>
         <button class="add-button" type="button"><img src="<%=require('./images/addButton.svg')%>" alt="Кнопка добавления"></button>
@@ -35,7 +42,7 @@
           <fieldset class="form__info">
             <input id="name-input" class="form__input form__input_type_name" type="text" placeholder="Имя" name='name' value="" required minlength="2" maxlength="40">
             <span id="name-input-error"></span>
-            <input id="about-input"class="form__input popup__input form__input_type_about" type="text" placeholder="О себе" name="info" value="" required minlength="2" maxlength="200">
+            <input id="about-input"class="form__input popup__input form__input_type_about" type="text" placeholder="О себе" name="about" value="" required minlength="2" maxlength="200">
             <span id="about-input-error"></span>
           </fieldset>
           <fieldset class="form__handler">
@@ -68,13 +75,40 @@
         <p class="popup__text"></p>
       </div>
     </section>
+    <section class="popup popup_type_avatar">
+      <div class="popup__container">
+        <button class="close-button close-button_type_avatar" type="button"></button>
+        <h3 class="popup__title">Обновить аватар</h3>
+        <form class="form form_type_avatar" novalidate>
+          <fieldset class="form__info form__info_type_avatar">
+            <input id="avatar-input" class="form__input form__input_type_avatar" type="url" placeholder="Ссылка на фото" name="name" value="" required>
+            <span id="avatar-input-error"></span>
+          </fieldset>
+          <fieldset class="form__handler">
+            <button class="submit-button popup__button submit-button_type_avatar" type="submit">Сохранить</button>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+    <section class="popup popup_type_delete">
+      <div class="popup__container">
+        <button class="close-button close-button_type_delete" type="button"></button>
+        <h3 class="popup__title">Вы уверены?</h3>
+        <fieldset class="form__handler">
+          <button class="submit-button popup__button submit-button_type_avatar" type="submit">Да</button>
+        </fieldset>
+      </div>
+    </section>
     <template class="template">
       <article class="element">
         <button class="image-button" type="button"><img class="element__image" src="#" alt=""></button>
         <button class="delete-button" type="button"></button>
         <div class="element__info">
           <h2 class="element__title"></h2>
-          <button class="like-button" type="button"></button>
+          <div class="element__likes">
+            <button class="like-button" type="button"></button>
+            <h3 class="element__like-count"></h3>
+          </div>
         </div>
       </article>
     </template>
