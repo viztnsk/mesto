@@ -30,16 +30,16 @@ export default class Api {
     setAvatar(avatar) {
       return this._fetch('/users/me/avatar', 'PATCH', avatar)
     }
-    addCard(values) {
-      return this._fetch('/cards', "POST", values)
+    addCard({name, link}) {
+      return this._fetch('/cards', "POST", {name, link})
     }
-    deleteCard() {
-      return this._fetch('/cards' + id, "DELETE")
+    deleteCard(card) {
+      return this._fetch(`/cards/${card._id}`, "DELETE")
     }
-    setLike() {
-      return this._fetch('/cards' + id + '/likes', "PUT")
+    setLike(card) {
+      return this._fetch(`/cards/${card._id}/likes`, "PUT")
     }
-    removeLike() {
-      return this._fetch('/cards' + id + '/likes', "DELETE")
+    removeLike(card) {
+      return this._fetch(`/cards/${card._id}/likes`, "DELETE")
     }
   }
