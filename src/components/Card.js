@@ -1,5 +1,5 @@
 export default class Card {
-  constructor (data, cardSelector, handleCardClick, isLiked, confirmDelete, userId)
+  constructor (data, cardSelector, handleCardClick, handleLikeClick, confirmDelete, userId)
     {
     this._cardSelector = cardSelector;
     this._card = document.querySelector(this._cardSelector)
@@ -11,16 +11,16 @@ export default class Card {
     this._id = data._id;
     this._owner = data.owner._id;
     this._handleCardClick = handleCardClick;
-    this._isLiked = isLiked;
+    this._handleLikeClick = handleLikeClick;
     this.confirmDelete = confirmDelete;
     this.userId = userId;
-    this._likeButton = this._card.querySelector('.like-button');
+    this.likeButton = this._card.querySelector('.like-button');
     this._likeCount = this._card.querySelector('.element__like-count');
     this.deleteButton = this._card.querySelector('.delete-button');
     this._cardImage = this._card.querySelector('.element__image');
   }
   handleLike () {
-    this._likeButton.classList.toggle('like-button_active'); 
+    this.likeButton.classList.toggle('like-button_active');
   }
   setLikeCount(likes) {
     this._likeCount.textContent = likes;
@@ -43,7 +43,7 @@ export default class Card {
     }
     this._card.querySelector('.element__title').textContent = this._name;
     this._likeCount.textContent = this._likes.length;
-    this._likeButton.addEventListener('click', () => this.handleLike());
+    this.likeButton.addEventListener('click', () => this._handleLikeClick(this));
     this._cardImage.addEventListener('click', () => this._handleClickCard())
     return this._card;
   }

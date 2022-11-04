@@ -13,4 +13,8 @@ export default class Section {
   addItem(element) {
     this._container.prepend(element);
   }
+  addItems(element, toEnd = false) {
+    if (toEnd) this._container.append(this.renderItem(element));
+    else this._container.prepend(this.renderItem(element));
+  }
 }

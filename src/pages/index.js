@@ -58,23 +58,24 @@ api.getUser()
   userInfo.setUserInfo(info);
   userInfo.setAvatar(info.avatar);
 })
+.catch(err => console.log(err))
 
 const popupWithInfoForm = new PopupWithForm('.popup_type_info', (values) =>
   api.patchUser(values)
     .then((values) => userInfo.setUserInfo(values))
+    .catch(err => console.log(err))
 );
 const popupWithAvatar = new PopupWithForm('.popup_type_avatar', (values) => {
   api.setAvatar({ avatar: values.link })
   .then(userInfo.setAvatar(values.link))
+  .catch(err => console.log(err))
 });
 
 
-
 const createCard = function(data) { 
-  const card = new Card(data, '.template', popupWithImage.open.bind(popupWithImage), handleLikeClick, confirmDelete, userInfo.getId); 
+  const card = new Card(data, '.template', popupWithImage.open.bind(popupWithImage), handleLikeClick, confirmDelete, userInfo.id); 
   return card.generateCard(); 
 } 
-
 const confirmDelete = function(card) {
   popupWithDeleteConfirm.chooseCard(card);
   popupWithDeleteConfirm.open();
@@ -85,18 +86,18 @@ const cardSection = new Section({
   '.elements' 
 ); 
 
-const handleLikeClick = function(card) {
-  if(!this._element.classList.contains('like-button_active')) {
+function handleLikeClick (card) {
+  if(card.likeButton.classList.contains('like-button_active')) {
     api.removeLike(card)
-    .then((res) => {this._card.setLikeCount(res.likes.length);
-      card.hangleLike()}
+    .then(res => {card.setLikeCount(res.likes.length);
+      card.handleLike()}
     )
     .catch(err => console.log(err))
   }
   else {
     api.setLike(card)
-    .then((res) => {this._card.setLikeCount(res.likes.length);
-    card.hangleLike()}
+    .then(res => {card.setLikeCount(res.likes.length);
+    card.handleLike()}
     )
     .catch(err => console.log(err))
   }
@@ -114,7 +115,6 @@ api.getCards()
 .then((data) => {
   cardSection.renderItems(data);
 })
-
 
 const popupWithDeleteConfirm = new PopupWithConfirm('.popup_type_delete', confirmedDelete);
 
@@ -159,5 +159,13 @@ popupWithCardForm.setEventListeners();
 popupWithAvatar.setEventListeners();
 popupWithImage.setEventListeners();
 popupWithDeleteConfirm.setEventListeners();
+
+Promise.all([api.getUser(), api.getCards()])
+  .then(([values, cards]) => {
+    userInfo.setUserInfo(values);
+    userInfo.setAvatar(values.avatar);
+    cardSection.renderItems(cards);
+  })
+  .catch(err => console.log(err))
 
 
