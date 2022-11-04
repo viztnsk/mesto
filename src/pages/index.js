@@ -50,7 +50,7 @@ const api = new Api({
     'Content-Type': 'application/json'
   }
 });
-const userInfo = new UserInfo('.profile__title', '.profile__subtitle', '.profile__avatar');
+const userInfo = new UserInfo('.profile__title', '.profile__subtitle', '.avatar__image');
 
 api.getUser()
 .then((data) => {

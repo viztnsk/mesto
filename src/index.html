@@ -14,8 +14,8 @@
     <main class="content">
       <section class="profile">
         <button class="avatar-button" type="button">
-          <div class="avatar__container">
-            <img class="profile__avatar" src="#" alt="Аватар">
+          <div class="avatar">
+            <img class="avatar__image" src="#" alt="Аватар">
             <div class="avatar__cover">
               <img class="avatar__edit-button" src="<%=require('./images/editAvatarButton.svg')%>" alt="Изменить аватар">
             </div>
@@ -94,9 +94,7 @@
       <div class="popup__container">
         <button class="close-button close-button_type_delete" type="button"></button>
         <h3 class="popup__title">Вы уверены?</h3>
-        <fieldset class="form__handler">
-          <button class="submit-button popup__button submit-button_type_avatar" type="submit">Да</button>
-        </fieldset>
+        <button class="submit-button popup__button submit-button_type_avatar" type="submit">Да</button>
       </div>
     </section>
     <template class="template">

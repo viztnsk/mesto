@@ -9,7 +9,6 @@
 @import url(../blocks/profile/__subtitle/profile__subtitle.css);
 @import url(../blocks/profile/__personal/profile__personal.css);
 @import url(../blocks/profile/__info/profile__info.css);
-@import url(../blocks/profile/__avatar/profile__avatar.css);
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/element/element.css);
 @import url(../blocks/element/__title/element__title.css);
@@ -51,6 +50,7 @@
 @import url(../blocks/submit-button/_disabled/submit-button_disabled.css);
 @import url(../blocks/form/__input/_type/form__input_type_error.css);
 @import url(../blocks/avatar-button/avatar-button.css);
-@import url(../blocks/avatar/__container/avatar__container.css);
+@import url(../blocks/avatar/avatar.css);
+@import url(../blocks/avatar/__image/avatar__image.css);
 @import url(../blocks/avatar/__cover/avatar__cover.css);
 @import url(../blocks/avatar/__edit-button/avatar__edit-button.css);
