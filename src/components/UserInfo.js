@@ -19,7 +19,7 @@ export default class UserInfo {
     this.setAvatar(data);
     this.id = data._id;
   }
-  setAvatar(avatar) {
-    this._avatarSelector.src = avatar;
+  setAvatar(data) {
+    this._avatarSelector.src = data.avatar;
   }
 }

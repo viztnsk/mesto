@@ -6,46 +6,45 @@ export default class PopupWithForm extends Popup {
     this._handleSubmit = handleSubmit;
     this._inputList = this._form.querySelectorAll('.form__input');
     this._submitButton = this._popup.querySelector('.submit-button');
-    this._isLoading = false;
   }
   _getInputValues() {
-    const values = {};
+    this._values = {};
     this._inputList.forEach((input) => {
-      values[input.name] = input.value
+      this._values[input.name] = input.value
     })
-    return values;
+    return this._values;
+  }
+  _disableButton() {
+    this._submitButton.classList.add('submit-button_disabled');
+    this._submitButton.disabled = true;
   }
   setInputValues(values) {
     this._inputList.forEach((input) => {
-      if (values[input.name]) {
         input.value = values[input.name];
-      }
-    });
+      })
   }
   getFormElement() {
     return this._form;
   }
   close() {
-    super.close()
     this._form.reset();
+    super.close()
+  }
+  setButtonText(isLoading) {
+    if (isLoading) {
+      this._disableButton();
+      this._initialText = this._submitButton.textContent;
+      this._submitButton.textContent = 'Сохранение...';
+    }
+    else {
+      this._submitButton.textContent = this._initialText;
+    }
   }
   setEventListeners() {
     super.setEventListeners();
     this._form.addEventListener('submit', (evt) => {
-      evt.preventDefault();
-      if (!this._isLoading) {
-        const initialText = this._submitButton.textContent;
-        this._isLoading = true;
-        this._submitButton.textContent = 'Сохранение...';
-        this._handleSubmit(this._getInputValues())
-        .then(() => {
-          this.close()
-        })
-        .catch(err => console.log(err))
-        .finally(() => {
-          this._submitButton.textContent = initialText;
-          this._isLoading = false;
-        })
-      }}
-  )}
+      evt.preventDefault()
+      this._handleSubmit(this._getInputValues())
+    })
+  }
 }

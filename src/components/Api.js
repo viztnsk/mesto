@@ -17,6 +17,7 @@ export default class Api {
     const res = await fetch(this._url + path, opt)
     const json = await res.json()
     return res.ok ? json : Promise.reject(`Ошибка: ${res.status}`)
+    throw new Error(json.message);
   }
     getCards() {
       return this._fetch('/cards', "GET");
