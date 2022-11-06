@@ -20,7 +20,7 @@ export default class Api {
       return json
     }
     else {
-      return Promise.reject(`Ошибка: ${res.status}`)
+      return Promise.reject(`Ошибка: ${json.message}`)
     }
   }
     getCards() {
